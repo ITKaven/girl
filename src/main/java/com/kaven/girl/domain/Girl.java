@@ -1,24 +1,24 @@
-package com.kaven.girl;
-
-import org.hibernate.internal.util.type.PrimitiveWrapperHelper;
+package com.kaven.girl.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
-/**
- * @author Kaven
- * @date 2018/10/12 15:31
- */
 @Entity
 public class Girl {
 
     @Id
     @GeneratedValue
+    //@NotNull(message = "Id 不能为空")
     private Integer id;
 
+    @NotNull(message = "cupSize 不能为空")
     private String cupSize;
 
+    @NotNull(message = "age 不能为空")
+    @Min(value = 18 , message = "未成年少女禁止入内！")
     private Integer age;
 
     public Girl(){}
@@ -45,5 +45,14 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

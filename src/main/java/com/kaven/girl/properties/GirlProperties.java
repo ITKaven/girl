@@ -1,12 +1,8 @@
-package com.kaven.girl;
+package com.kaven.girl.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Kaven
- * @date 2018/10/12 14:40
- */
 @ConfigurationProperties(prefix = "girl")
 @Component
 public class GirlProperties {
